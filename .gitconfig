@@ -1,0 +1,13 @@
+[init]
+    defaultbranch=main
+
+[user]
+    name=Aaron P.
+    email = 19561067+aaronzper@users.noreply.github.com
+
+[alias]
+    graph=log --oneline --graph
+
+[pager]
+    branch=false
+    config=false
