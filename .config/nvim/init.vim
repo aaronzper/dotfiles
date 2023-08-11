@@ -37,8 +37,9 @@ call plug#begin()
     Plug 'wdhg/coc-omnisharp'                           " Apple Silicon-compatible coc-omnisharp fork
     Plug 'morhetz/gruvbox'                              " gruvbox theme
     Plug 'catppuccin/nvim', { 'as': 'catppuccin' }      " catppuccin theme
-    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " Fuzzy finder
-    Plug 'junegunn/fzf.vim'                             " Vim-specific config for FZF (it's a generic finder so this makes it vim-specific)
+    Plug 'nvim-lua/plenary.nvim'                        " Telescope prereq
+    Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' } " Fuzzy finder
+    Plug 'nvim-tree/nvim-web-devicons'                  " Filetype icons
 call plug#end()
 
 " Activate theme
@@ -50,6 +51,5 @@ source $HOME/.config/nvim/coc.vim
 " Set keybinds for Vimspector
 let g:vimspector_enable_mappings = 'HUMAN'
 
-" Settings for fzf
-let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
-let $FZF_DEFAULT_COMMAND = 'fd --type f --strip-cwd-prefix' " Use fd for finding as it ignore .gitignore files (which we want)
+" Shortcut for Telescope
+nnoremap <leader>p :Telescope fd<CR>
