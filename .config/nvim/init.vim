@@ -51,5 +51,5 @@ source $HOME/.config/nvim/coc.vim
 " Set keybinds for Vimspector
 let g:vimspector_enable_mappings = 'HUMAN'
 
-" Shortcut for Telescope
-nnoremap <leader>p :Telescope fd<CR>
+" Shortcut for Telescope | ; is already the leader key but for some reason '<leader><leader>' wont work so here we are
+nnoremap <leader>; :Telescope fd<CR>
