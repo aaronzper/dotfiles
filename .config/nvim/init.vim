@@ -35,6 +35,7 @@ call plug#begin()
     Plug 'tpope/vim-surround'                           " surround.vim (plugin for parenthesis, quotes, html/xml tags, etc)
 
     Plug 'vim-airline/vim-airline'                      " Airline statusline
+    Plug 'vim-airline/vim-airline-themes'               " Airline themes
 
     Plug 'puremourning/vimspector'                      " Vimspector debugging
 
@@ -57,8 +58,9 @@ call plug#begin()
     Plug 'VonHeikemen/lsp-zero.nvim', {'branch': 'v2.x'} " LSP, code completion, etc
 call plug#end()
 
-" Activate theme
+" Activate themes
 colorscheme catppuccin-mocha
+let g:airline_theme='solarized'
 
 " Setup LSP
 source ~/.config/nvim/lsp.lua
