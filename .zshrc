@@ -104,5 +104,11 @@ alias vim="nvim"
 alias dotfiles='git --git-dir=$HOME/.dotfiles-git/ --work-tree=$HOME'
 
 export KUBE_EDITOR=nvim
- 
+
 ~/.zshrc_unique
+
+# Entrypoint -- go into tmux if a) we're not already in it b) we're in an interactive shell and c) it's on the system
+# From https://unix.stackexchange.com/a/113768
+#if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+  #exec tmux new-session -A -s main
+#fi
