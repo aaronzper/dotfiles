@@ -29,24 +29,39 @@ endif
 " Plugins (courtsey of VimPlug)
 call plug#begin()
     Plug 'preservim/nerdtree'                           " NERDTree
+
     Plug 'sheerun/vim-polyglot'                         " Polyglot (Syntax highlighting for pretty much any lang)
+
     Plug 'tpope/vim-surround'                           " surround.vim (plugin for parenthesis, quotes, html/xml tags, etc)
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}     " CoC code completion
+
     Plug 'vim-airline/vim-airline'                      " Airline statusline
+
     Plug 'puremourning/vimspector'                      " Vimspector debugging
-    Plug 'wdhg/coc-omnisharp'                           " Apple Silicon-compatible coc-omnisharp fork
+
     Plug 'morhetz/gruvbox'                              " gruvbox theme
     Plug 'catppuccin/nvim', { 'as': 'catppuccin' }      " catppuccin theme
+
     Plug 'nvim-lua/plenary.nvim'                        " Telescope prereq
     Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' } " Fuzzy finder
+
     Plug 'nvim-tree/nvim-web-devicons'                  " Filetype icons
+
+    " The following are prereqs of lsp-zero
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'williamboman/mason.nvim'
+    Plug 'williamboman/mason-lspconfig.nvim'
+    Plug 'hrsh7th/nvim-cmp'
+    Plug 'hrsh7th/cmp-nvim-lsp'
+    Plug 'L3MON4D3/LuaSnip'
+
+    Plug 'VonHeikemen/lsp-zero.nvim', {'branch': 'v2.x'} " LSP, code completion, etc
 call plug#end()
 
 " Activate theme
 colorscheme catppuccin-mocha
 
-" Import CoC config
-source $HOME/.config/nvim/coc.vim 
+" Setup LSP
+source ~/.config/nvim/lsp.lua
 
 " Set keybinds for Vimspector
 let g:vimspector_enable_mappings = 'HUMAN'
