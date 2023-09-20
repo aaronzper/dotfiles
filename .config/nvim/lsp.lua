@@ -2,10 +2,11 @@ local lsp = require('lsp-zero').preset({})
 
 lsp.ensure_installed({
   "tsserver",
-  "eslint-lsp",
+  "eslint",
   "lua_ls",
   "rust_analyzer",
   "reason_ls",
+  "clangd",
 })
 
 local cmp = require("cmp")
