@@ -10,6 +10,7 @@ set cursorline              " Highlight the line the cursor is on
 set relativenumber          " Show relative rather than absolute line numbers
 set splitbelow              " Open new splits below, not above
 set splitright              " OPen new v-splits to the right, not left
+set colorcolumn=80          " Show a column at 80 chars (to keep code lines from being hella long)
 
 let mapleader = ';' " <leader> key definition
 
