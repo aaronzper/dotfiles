@@ -48,6 +48,8 @@ call plug#begin()
 
     Plug 'nvim-tree/nvim-web-devicons'                  " Filetype icons
 
+    Plug 'Yggdroot/indentLine'                          " Indent guides
+
     " The following are prereqs of lsp-zero
     Plug 'neovim/nvim-lspconfig'
     Plug 'williamboman/mason.nvim'
