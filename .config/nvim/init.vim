@@ -50,6 +50,8 @@ call plug#begin()
 
     Plug 'Yggdroot/indentLine'                          " Indent guides
 
+    Plug 'scrooloose/nerdcommenter'                     " Commenting stuf
+
     " The following are prereqs of lsp-zero
     Plug 'neovim/nvim-lspconfig'
     Plug 'williamboman/mason.nvim'
@@ -59,11 +61,17 @@ call plug#begin()
     Plug 'L3MON4D3/LuaSnip'
 
     Plug 'VonHeikemen/lsp-zero.nvim', {'branch': 'v2.x'} " LSP, code completion, etc
+
+    Plug 'mbbill/undotree' " Undo tree visualizer
 call plug#end()
 
+" Markdown settings (don't conceal blocks)
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_conceal_code_blocks = 0
+
 " Activate themes
-colorscheme catppuccin-mocha
-let g:airline_theme='solarized'
+colorscheme gruvbox " or catppuccin-mocha
+let g:airline_theme='deus' " or 'solarized'
 
 " Setup LSP
 source ~/.config/nvim/lsp.lua

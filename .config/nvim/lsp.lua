@@ -1,14 +1,14 @@
 local lsp = require('lsp-zero').preset({})
 
 lsp.ensure_installed({
-  "tsserver", -- TypeScript
-  "eslint", -- ESL JS linter
-  "lua_ls", -- Lua
-  "rust_analyzer", -- Rust
-  "reason_ls", -- ReasonML
-  "clangd",
+  "ts_ls",                -- TypeScript
+  "eslint",               -- ESL JS linter
+  "lua_ls",               -- Lua
+  "rust_analyzer",        -- Rust
+  "clangd",               -- Clang
   "java_language_server", -- Java
-  "pyright" -- Python
+  "pyright",              -- Python
+  -- "some-sass-langauge-server", -- SCSS/SASS
 })
 
 local cmp = require("cmp")
@@ -39,8 +39,5 @@ vim.cmd('autocmd CursorHold * lua vim.diagnostic.open_float()')
 
 -- Configure lua language server for neovim
 require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
-
--- Add Racket lang server manually (Mason doesnt have it, so make sure you have it installed yourself!!)
-require('lspconfig').racket_langserver.setup{}
 
 lsp.setup()
