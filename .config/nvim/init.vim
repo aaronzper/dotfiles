@@ -11,6 +11,7 @@ set relativenumber          " Show relative rather than absolute line numbers
 set splitbelow              " Open new splits below, not above
 set splitright              " OPen new v-splits to the right, not left
 set colorcolumn=80          " Show a column at 80 chars (to keep code lines from being hella long)
+set exrc                    " Source .nvim.lua from project root if present
 
 let mapleader = ';' " <leader> key definition
 
@@ -38,7 +39,7 @@ call plug#begin()
     Plug 'vim-airline/vim-airline'                      " Airline statusline
     Plug 'vim-airline/vim-airline-themes'               " Airline themes
 
-    Plug 'puremourning/vimspector'                      " Vimspector debugging
+    "Plug 'puremourning/vimspector'                      " Vimspector debugging
 
     Plug 'morhetz/gruvbox'                              " gruvbox theme
     Plug 'catppuccin/nvim', { 'as': 'catppuccin' }      " catppuccin theme
@@ -52,17 +53,16 @@ call plug#begin()
 
     Plug 'scrooloose/nerdcommenter'                     " Commenting stuf
 
-    " The following are prereqs of lsp-zero
+    Plug 'mbbill/undotree'                              " Undo tree visualizer
+
+    Plug 'DingDean/wgsl.vim'                            " WGSL highlighting
+
     Plug 'neovim/nvim-lspconfig'
     Plug 'williamboman/mason.nvim'
     Plug 'williamboman/mason-lspconfig.nvim'
     Plug 'hrsh7th/nvim-cmp'
     Plug 'hrsh7th/cmp-nvim-lsp'
     Plug 'L3MON4D3/LuaSnip'
-
-    Plug 'VonHeikemen/lsp-zero.nvim', {'branch': 'v2.x'} " LSP, code completion, etc
-
-    Plug 'mbbill/undotree' " Undo tree visualizer
 call plug#end()
 
 " Markdown settings (don't conceal blocks)
@@ -80,4 +80,4 @@ source ~/.config/nvim/lsp.lua
 let g:vimspector_enable_mappings = 'HUMAN'
 
 " Shortcut for Telescope | ; is already the leader key but for some reason '<leader><leader>' wont work so here we are
-nnoremap <leader>; :Telescope fd<CR>
+nnoremap <leader>; :Telescope find_files<CR>
