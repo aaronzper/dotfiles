@@ -39,7 +39,12 @@ call plug#begin()
     Plug 'vim-airline/vim-airline'                      " Airline statusline
     Plug 'vim-airline/vim-airline-themes'               " Airline themes
 
-    "Plug 'puremourning/vimspector'                      " Vimspector debugging
+    Plug 'mfussenegger/nvim-dap'                        " Debug Adapter Protocol client
+    Plug 'rcarriga/nvim-dap-ui'                         " DAP UI (scopes, stacks, breakpoints, repl)
+    Plug 'nvim-neotest/nvim-nio'                        " nvim-dap-ui dependency
+    Plug 'theHamsta/nvim-dap-virtual-text'              " Inline variable values while debugging
+    Plug 'jay-babu/mason-nvim-dap.nvim'                 " Install DAP adapters (codelldb) via Mason
+    Plug 'Weissle/persistent-breakpoints.nvim'          " Persist breakpoints across sessions
 
     Plug 'morhetz/gruvbox'                              " gruvbox theme
     Plug 'catppuccin/nvim', { 'as': 'catppuccin' }      " catppuccin theme
@@ -56,6 +61,8 @@ call plug#begin()
     Plug 'mbbill/undotree'                              " Undo tree visualizer
 
     Plug 'DingDean/wgsl.vim'                            " WGSL highlighting
+
+    Plug 'sindrets/diffview.nvim'                       " Git diff viewer
 
     Plug 'neovim/nvim-lspconfig'
     Plug 'williamboman/mason.nvim'
@@ -74,10 +81,11 @@ colorscheme gruvbox " or catppuccin-mocha
 let g:airline_theme='deus' " or 'solarized'
 
 " Setup LSP
+let g:format_on_save = 1
 source ~/.config/nvim/lsp.lua
 
-" Set keybinds for Vimspector
-let g:vimspector_enable_mappings = 'HUMAN'
+" Setup debugging (nvim-dap + codelldb, Telescope process picker)
+source ~/.config/nvim/dap.lua
 
 " Shortcut for Telescope | ; is already the leader key but for some reason '<leader><leader>' wont work so here we are
 nnoremap <leader>; :Telescope find_files<CR>
